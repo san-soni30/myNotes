@@ -17,7 +17,7 @@ const Login = (props) => {
       console.log(json);
       if(json.success){
          // Save the auth token and redirect
-         localStorage.setItem('token', json.authtoken)
+         localStorage.setItem('token', json.authToken);
          navigate("/");
           props.showAlert("Logged In successfully", "success")
       }
@@ -29,21 +29,24 @@ const Login = (props) => {
       setCredentials({...credentials, [e.target.name]: e.target.value})
    }
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-  <div className="mb-3">
-    <label htmlFor="email" className="form-label">Email address</label>
-    <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" name="email" aria-describedby="emailHelp"/>
+    <div className="login-page">
+  <div className="login-card">
+    <h2 className="text-center mb-4">Login to <span className="brand-text">MyNote</span></h2>
+    <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label">Email address</label>
+        <input type="email" className="form-control custom-input" value={credentials.email} onChange={onChange} id="email" name="email" required />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="password" className="form-label">Password</label>
+        <input type="password" className="form-control custom-input" value={credentials.password} onChange={onChange} id="password" name="password" required />
+      </div>
+      <button type="submit" className="btn btn-theme w-100">Login</button>
+      <p className="text-center mt-3">Don't have an account? <Link to="/signup">Sign up</Link></p>
+    </form>
   </div>
-  <div className="mb-3">
-    <label htmlFor="password" className="form-label">Password</label>
-    <input type="password" className="form-control" value={credentials.password} onChange={onChange} id="password" name="password"/>
-  </div>
-  
-  <button type="submit" className="btn btn-primary" >Login</button>
-   <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
-</form>
-    </div>
+</div>
+
   )
 }
 

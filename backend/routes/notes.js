@@ -6,14 +6,14 @@ const { body, validationResult } = require('express-validator');
 
 // Route-I: Get all the notes using: GET "/api/notes/fetchallnotes". Login required
 router.get('/fetchallnotes', fetchUser, async (req, res) => {
-   try {
-      const notes = await Note.find({ user: req.user.id })
-      res.json(notes);
-   } catch (error) {
-      console.log(error.message);
-      res.status(500).send("Error occured while creating user");
-   }
-
+  try {
+    console.log("Fetching notes for user:", req.user.id);  
+    const notes = await Note.find({ user: req.user.id });
+    res.json(notes);
+  } catch (error) {
+    console.error("Error fetching notes:", error.message);
+    res.status(500).json({ error: "Internal Server Error" }); 
+  }
 });
 
 // Route-II: Add a new note using: POST "/api/notes/addnote". Login required

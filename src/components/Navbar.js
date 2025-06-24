@@ -1,37 +1,60 @@
-import React, { useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
-  let location = useLocation();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+
   useEffect(() => {
-    // console.log(location.pathname);
+    setIsLoggedIn(!!localStorage.getItem('token'));
   }, [location]);
+
+  const HandleLogout = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    navigate('/login');
+  };
+
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <Link className="navbar-brand" to="/">MyNote</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <nav className="navbar navbar-expand-lg custom-navbar">
+      <div className="container-fluid">
+        <Link className="navbar-brand" style={{ fontSize: '30px' }} to="/">MyNote</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          {isLoggedIn && (
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} aria-current="page" to="/">Home</Link>
+              <li className="nav-item" style={{ fontSize: '30px' }}>
+                <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/">Home</Link>
               </li>
-              <li className="nav-item">
-                <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} aria-current="page" to="/about">About</Link>
+              <li className="nav-item" style={{ fontSize: '30px' }}>
+                <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to="/about">About</Link>
               </li>
             </ul>
-            <Link to="/login">
-            <i className="fa-solid fa-circle-user fa-2x" style={{ fontSize: '40px', marginRight: '150px'}}></i>
-            </Link>
+          )}
 
-          </div>
+          {!isLoggedIn ? (
+            <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div className="tooltip-container">
+                <i className="fa-solid fa-circle-user fa-2x" style={{ fontSize: '40px', marginLeft: '1550px' }}></i>
+                <span className="tooltip-text" style={{left: '105%'}}>Login</span>
+              </div>
+            </Link>
+          ) : (
+            <div className="tooltip-container" onClick={HandleLogout}>
+              <i className="fa-solid fa-right-from-bracket fa-2x" style={{ fontSize: '30px', marginRight: '150px' }}></i>
+              <span className="tooltip-text">Logout</span>
+            </div>
+          )}
         </div>
-      </nav>
-    </div>
-  )
+      </div>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;
