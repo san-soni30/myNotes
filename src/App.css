@@ -12,9 +12,11 @@
 }
 
 .custom-navbar .nav-link:hover {
-  color: #ffe6f0 !important;
+  color: black !important;
 }
-
+.nav-link.active {
+  color: black !important;
+}
 .tooltip-container {
   position: relative;
   display: inline-block;
@@ -133,10 +135,6 @@ i{
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
-.brand-text {
-  color: #B33791;
-}
-
 .btn-theme {
   background-color: #B33791;
   color: white;
@@ -148,7 +146,7 @@ i{
 .btn-theme:hover {
   background-color: #C562AF;
 }
-/* Note Card Styling */
+
 .note-card {
   background-color: #FEC5F6;
   border-left: 6px solid #B33791;
@@ -163,7 +161,6 @@ i{
   transform: scale(1.02);
 }
 
-/* Note Tag Styling */
 .note-tag {
   position: absolute;
   top: 0;
@@ -178,7 +175,6 @@ i{
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Icons */
 .icon-group i {
   cursor: pointer;
   font-size: 1.2rem;

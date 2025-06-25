@@ -54,15 +54,15 @@ if (token && token !== "undefined") {
               <form className='my-3'>
                 <div className="mb-3">
                   <label htmlFor="title" className="form-label">Title,</label>
-                  <input type="text" className="form-control" id="etitle" name="etitle" aria-describedby="emailHelp" value={note.etitle} onChange={onChange} minLength={5} required />
+                  <input type="text" className="form-control custom-input" id="etitle" name="etitle" aria-describedby="emailHelp" value={note.etitle} onChange={onChange} minLength={5} required />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="desc" className="form-label">Description</label>
-                  <input type="text" name="edesc" className="form-control" id="edesc" value={note.edesc}onChange={onChange} minLength={5} required  />
+                  <input type="text" name="edesc" className="form-control custom-input" id="edesc" value={note.edesc}onChange={onChange} minLength={5} required  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="tag" className="form-label">Tag</label>
-                  <input type="text" name="etag" className="form-control" id="etag" value={note.etag}onChange={onChange} />
+                  <input type="text" name="etag" className="form-control custom-input" id="etag" value={note.etag}onChange={onChange} />
                 </div>
               </form>
             </div>
