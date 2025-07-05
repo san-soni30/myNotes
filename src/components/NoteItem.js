@@ -7,7 +7,7 @@ function NoteItem(props) {
   const { deleteNote } = context;
 
   return (
-    <div className="col-md-4">
+    <div className="col-md-6">
       <div className="note-card my-4">
         <div className="card-body text-dark">
           <span className="note-tag badge rounded-pill">{note.tag}</span>
