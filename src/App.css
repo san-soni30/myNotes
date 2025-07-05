@@ -1,9 +1,27 @@
 .custom-navbar {
+  position: sticky;        /* Sticks to top while scrolling */
+  top: 0;                  /* Required with sticky */
+  z-index: 1000;           /* Keeps it above other elements */
   background: linear-gradient(to right, #B33791, #C562AF, #DB8DD0, #FEC5F6);
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 1rem 2rem;      /* Replaces invalid "padding: 100;" */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
+/* Optional: Responsive text and spacing inside navbar */
+.custom-navbar a,
+.custom-navbar button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .custom-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+}
 .custom-navbar .navbar-brand,
 .custom-navbar .nav-link {
   color: white !important;

@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+📝 myNotes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+myNotes is a modern, user-friendly note-taking web application built with the MERN stack. It allows users to securely register, log in, and manage personal notes — all through a clean and responsive interface.
 
-## Available Scripts
+✨ Features:
+   - User Authentication: Secure registration, login, and logout using JWT.
+   - Notes Management: Add, view, update, and delete personal notes.
+   - Modern UI: Clean and intuitive interface built with React.js.
+   - Protected Routes: Only logged-in users can manage notes.
+   - Secure Backend: Express.js with MongoDB & Mongoose.
 
-In the project directory, you can run:
+📸 Preview
 
-### `npm start`
+![Login Screenshot](./login.png) 
+![Register Screenshot](./register.png) 
+![Home screenshot](./home.png) 
+![About Screenshot](./about.png) 
+![Update Screenshot](./update.png) 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🛠️ Tech Stack
 
-### `npm test`
+| Technology     | Description                            |
+|----------------|----------------------------------------|
+| ⚛️ React.js     | Frontend framework                     |
+| 🚀 Express.js   | Backend server framework               |
+| 🍃 MongoDB      | NoSQL database                         |
+| 🧩 Mongoose     | MongoDB ODM for schema modeling        |
+| 🔐 JWT          | Token-based authentication             |
+| 🔑 bcrypt       | Secure password hashing                |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+⚙️ Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📦 Prerequisites
+   - ✅ [Node.js](https://nodejs.org/) and npm installed
+   - ✅ [MongoDB](https://www.mongodb.com/) installed & running locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+📁 Installation
 
-### `npm run eject`
+1. Clone the repository:
+   - git clone https://github.com/san-soni30/myNotes.git
+   - cd mynotes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+   - npm install        # for frontend
+   - cd backend
+   - npm install        # for backend
+   - cd ..
+   - Start MongoDB (if not already running):
+   - mongod
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Run both frontend and backend:
+   - npm run both
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Open your browser:
+   - Frontend: http://localhost:3000
+   - Backend: http://localhost:5000
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+🚀 Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Action             | Description                           |
+| ---------------    | ------------------------------------- |
+| 📝 Register        | Create a new user account             |
+| 🔐 Login           | Securely sign in to your account      |
+| ➕ Add Note        | Click “Add Note” to create a new note |
+| ✏️ Edit Note       | Use the edit icon on any note         |
+| 🗑️ Delete Note     | Use the delete icon on any note       |
+| 🚪 Logout          | Click the logout icon in the navbar   |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+📂 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+mynotes/
+├── backend/              # Express.js backend
+│   ├── routes/           # API endpoints (auth, notes)
+│   ├── models/           # Mongoose schemas
+│   ├── middleware/       # JWT auth middleware
+│   └── server.js         # Backend entry point
+├── src/
+│     ├── components/   # Reusable components
+│     ├── pages/        # Login, Signup, Notes
+│     └── context/      # Auth & notes context
+├── public/               # Static frontend files
+└── README.md
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🔐 Security Highlights
+   - Passwords are hashed using bcrypt before storing in MongoDB.
+   - JWT tokens protect routes and validate each user session.
+   - Notes and data are only accessible to authenticated users.
 
-### Making a Progressive Web App
+🧪 Future Enhancements
+   - Dark Mode toggle
+   - Tag-based filtering and categorization
+   - Rich-text editing support
+   - Deployment to Vercel / Render
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+📄 License
+   - This project is for educational purposes and can be modified or extended as needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🙌 Crafted with 💖 by Sanskruti Soni

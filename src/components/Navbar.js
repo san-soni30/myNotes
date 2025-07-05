@@ -19,7 +19,8 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container-fluid">
-        <Link className="navbar-brand nav-link" style={{ fontSize: '30px'}} to="/">MyNote</Link>
+        <Link className="navbar-brand nav-link" style={{ fontSize: '30px' }} to="/">MyNote</Link>
+
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
           aria-expanded="false" aria-label="Toggle navigation">
@@ -38,19 +39,22 @@ function Navbar() {
             </ul>
           )}
 
-          {!isLoggedIn ? (
-            <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <div className="tooltip-container">
-                <i className="fa-solid fa-circle-user fa-2x" style={{ fontSize: '40px', marginLeft: '1550px' }}></i>
-                <span className="tooltip-text" style={{left: '105%'}}>Login</span>
+          {/* Right aligned icon */}
+          <div className="d-flex ms-auto align-items-center">
+            {!isLoggedIn ? (
+              <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div className="tooltip-container" style={{ cursor: 'pointer' }}>
+                  <i className="fa-solid fa-circle-user fa-2x" style={{ fontSize: '30px' }}></i>
+                  <span className="tooltip-text ms-2">Login</span>
+                </div>
+              </Link>
+            ) : (
+              <div className="tooltip-container" onClick={HandleLogout} style={{ cursor: 'pointer' }}>
+                <i className="fa-solid fa-right-from-bracket fa-2x" style={{ fontSize: '30px' }}></i>
+                <span className="tooltip-text ms-2">Logout</span>
               </div>
-            </Link>
-          ) : (
-            <div className="tooltip-container" onClick={HandleLogout}>
-              <i className="fa-solid fa-right-from-bracket fa-2x" style={{ fontSize: '30px', marginRight: '150px' }}></i>
-              <span className="tooltip-text">Logout</span>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </nav>
