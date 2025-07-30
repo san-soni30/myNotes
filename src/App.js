@@ -30,26 +30,20 @@ function App() {
         <Alert alert={alert} />
         <div className="container">
           <Routes>
-            {/* 🔒 Protected Routes */}
-            <Route
-              exact
-              path="/"
-              element={
-                <PrivateRoute>
-                  <Home showAlert={showAlert} />
-                </PrivateRoute>
-              }
+            {/* Protected Routes */}
+            <Route exact path="/" element={ 
+              <PrivateRoute> 
+                <Home showAlert={showAlert} /> 
+              </PrivateRoute>
+            }
             />
-            <Route
-              exact
-              path="/about"
-              element={
+            <Route exact path="/about" element={
                 <PrivateRoute>
                   <About />
                 </PrivateRoute>
               }
             />
-            {/* 🔓 Public Routes */}
+            {/* Public Routes */}
             <Route exact path="/login" element={<Login showAlert={showAlert} />} />
             <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
           </Routes>
